@@ -41,8 +41,8 @@ module objects {
       this.y = -this.height;
       }
       else if (managers.Game.currentScene == config.Scene.LEVEL2) {
-        this.y = Math.floor((Math.random() * (480 + this.height)) + this.halfHeight);
-      this.x = +this.width;
+        this.y = Math.floor(Math.random() * 480 );
+      this.x += this.width;
       }
       else if (managers.Game.currentScene == config.Scene.LEVEL3) {
         this.y = Math.floor((Math.random() * (480 - this.height)) + this.halfHeight);
