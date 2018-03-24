@@ -83,7 +83,7 @@ module scenes {
       }
       //Part 2: When the player reaches 500 points change the active scene to a new Scene that you will create. 
       //Call the New Scene Level2. Ensure you carry over the player's current points and lives to the new scene.
-      if(this._scoreBoard.Score>=100){
+      if(this._scoreBoard.Score>=500){
         managers.Game.currentScene = config.Scene.LEVEL2;
       }
 
