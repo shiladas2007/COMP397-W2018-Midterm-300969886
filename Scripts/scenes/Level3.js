@@ -10,11 +10,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var level2 = /** @class */ (function (_super) {
-        __extends(level2, _super);
+    var level3 = /** @class */ (function (_super) {
+        __extends(level3, _super);
         // Public Properties
         // Constructor
-        function level2() {
+        function level3() {
             var _this = _super.call(this) || this;
             //Ensure carrying over the player's current points and lives to the new scene
             _this._scoreBoard = managers.Game.scoreBoard;
@@ -26,7 +26,7 @@ var scenes;
         // Private Mathods
         // Public Methods
         // Initialize Game Variables and objects
-        level2.prototype.Start = function () {
+        level3.prototype.Start = function () {
             this._ocean = new objects.Ocean();
             //However, setup the controls for the Player so that the Plane starts on the Left hand side of the screen
             // and that he is in a fixed position
@@ -40,8 +40,8 @@ var scenes;
             // instantiate the cloud array
             this._clouds = new Array();
             //this._cloudNum = 3;
-            //Part 5: For Level 2 ensure that there are 2 clouds in the scene.
-            this._cloudNum = 2;
+            //For Level 3 ensure that there are 3 clouds in the scene.
+            this._cloudNum = 3;
             // loop and add each cloud to the array
             for (var count = 0; count < this._cloudNum; count++) {
                 this._clouds[count] = new objects.Cloud(220, 50);
@@ -55,7 +55,7 @@ var scenes;
             this.Main();
         };
         // triggered every frame
-        level2.prototype.Update = function () {
+        level3.prototype.Update = function () {
             var _this = this;
             this._ocean.Update();
             this._plane.Update();
@@ -75,12 +75,12 @@ var scenes;
                 this._engineSound.stop();
                 managers.Game.currentScene = config.Scene.OVER;
             }
-            if (this._scoreBoard.Score >= 1000) {
-                managers.Game.currentScene = config.Scene.LEVEL3;
+            if (this._scoreBoard.Score >= 500) {
+                managers.Game.currentScene = config.Scene.LEVEL2;
             }
         };
         // This is where the fun happens
-        level2.prototype.Main = function () {
+        level3.prototype.Main = function () {
             var _this = this;
             // add the ocean to the scene
             this.addChild(this._ocean);
@@ -99,8 +99,8 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        return level2;
+        return level3;
     }(objects.Scene));
-    scenes.level2 = level2;
+    scenes.level3 = level3;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=Level2.js.map
+//# sourceMappingURL=Level3.js.map

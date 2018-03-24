@@ -22,6 +22,9 @@ module objects {
       else if (managers.Game.currentScene == config.Scene.LEVEL2) {
         this.x = 800;
       }
+      else if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        this.x = 600;
+      }
     }
 
     // move the object to some new location
@@ -31,6 +34,9 @@ module objects {
       }
       else if (managers.Game.currentScene == config.Scene.LEVEL2) {
         this.x -= this._dx;
+      }
+      else if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        this.x += this._dx;
       }
 
     }
@@ -44,6 +50,11 @@ module objects {
       }
       else if (managers.Game.currentScene == config.Scene.LEVEL2) {
         if (this.x <= 640) {
+          this._reset();
+        }
+      }
+      else if (managers.Game.currentScene == config.Scene.LEVEL3) {
+        if (this.x <= 800) {
           this._reset();
         }
       }

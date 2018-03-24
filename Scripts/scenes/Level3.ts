@@ -1,5 +1,5 @@
 module scenes {
-    export class level2 extends objects.Scene {
+    export class level3 extends objects.Scene {
         // Private Instance Variables
         private _ocean: objects.Ocean;
         private _plane: objects.Plane;
@@ -47,8 +47,8 @@ module scenes {
           // instantiate the cloud array
           this._clouds = new Array<objects.Cloud>();
           //this._cloudNum = 3;
-          //Part 5: For Level 2 ensure that there are 2 clouds in the scene.
-          this._cloudNum = 2;
+          //For Level 3 ensure that there are 3 clouds in the scene.
+          this._cloudNum = 3;
           // loop and add each cloud to the array
           for (let count = 0; count < this._cloudNum; count++) {
             this._clouds[count] = new objects.Cloud(220,50);
@@ -90,8 +90,8 @@ module scenes {
             this._engineSound.stop();
             managers.Game.currentScene = config.Scene.OVER;
           }
-          if(this._scoreBoard.Score>=1000){
-            managers.Game.currentScene = config.Scene.LEVEL3;
+          if(this._scoreBoard.Score>=500){
+            managers.Game.currentScene = config.Scene.LEVEL2;
           }
     
         }

@@ -15,8 +15,8 @@
   let keyboardManager: managers.Keyboard;
   let textureAtlasData: any;
   let textureAtlas: createjs.SpriteSheet;
-  
-  
+
+
 
   textureAtlasData = {
 
@@ -52,7 +52,7 @@
       [69, 316, 65, 65, 0, 0, 0],
       [136, 316, 200, 60, 0, 0, 0],
       [2, 383, 200, 60, 0, 0, 0]
-  ],
+    ],
 
     "animations": {
       "cloud": { "frames": [0] },
@@ -142,8 +142,11 @@
         currentScene = new scenes.PlayScene();
         break;
       case config.Scene.LEVEL2:
-                currentScene = new scenes.level2();
-                break;
+        currentScene = new scenes.level2();
+        break;
+      case config.Scene.LEVEL3:
+        currentScene = new scenes.level3();
+        break;
       case config.Scene.OVER:
         currentScene = new scenes.OverScene();
         break;
