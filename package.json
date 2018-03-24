@@ -1,0 +1,31 @@
+{
+  "name": "comp397-w2018-midterm-300969886",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiladas2007/COMP397-W2018-Midterm-300969886.git"
+  },
+  "author": "Shila Rani Das <shiladas2007@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shiladas2007/COMP397-W2018-Midterm-300969886/issues"
+  },
+  "homepage": "https://github.com/shiladas2007/COMP397-W2018-Midterm-300969886#readme",
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0"
+  },
+  "dependencies": {
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^0.6.27",
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
+  }
+}
