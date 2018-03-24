@@ -37,7 +37,9 @@ module scenes {
 
       // instantiate the cloud array
       this._clouds = new Array<objects.Cloud>();
-      this._cloudNum = 3;
+      //this._cloudNum = 3;
+      //Part 1: Reduce the number of clouds in the Play scene to 1.
+      this._cloudNum = 1;
       // loop and add each cloud to the array
       for (let count = 0; count < this._cloudNum; count++) {
         this._clouds[count] = new objects.Cloud();
