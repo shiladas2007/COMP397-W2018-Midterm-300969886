@@ -29,11 +29,11 @@ module scenes {
     // Initialize Game Variables and objects
     public Start(): void {
       this._ocean = new objects.Ocean();
-      this._plane = new objects.Plane();
+      this._plane = new objects.Plane(320,430);
       managers.Game.plane = this._plane;
 
-      this._coin = new objects.Coin();
-      this._island = new objects.Island();
+      this._coin = new objects.Coin(this._plane.x,this._plane.y);
+      this._island = new objects.Island(120,0);
 
       // instantiate the cloud array
       this._clouds = new Array<objects.Cloud>();
@@ -42,7 +42,7 @@ module scenes {
       this._cloudNum = 1;
       // loop and add each cloud to the array
       for (let count = 0; count < this._cloudNum; count++) {
-        this._clouds[count] = new objects.Cloud();
+        this._clouds[count] = new objects.Cloud(220,50);
       }
 
       this._engineSound = createjs.Sound.play("engine");
@@ -80,6 +80,11 @@ module scenes {
       if(this._scoreBoard.Lives <= 0) {
         this._engineSound.stop();
         managers.Game.currentScene = config.Scene.OVER;
+      }
+      //Part 2: When the player reaches 500 points change the active scene to a new Scene that you will create. 
+      //Call the New Scene Level2. Ensure you carry over the player's current points and lives to the new scene.
+      if(this._scoreBoard.Score>=100){
+        managers.Game.currentScene = config.Scene.LEVEL2;
       }
 
     }

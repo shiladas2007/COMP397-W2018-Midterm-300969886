@@ -5,8 +5,8 @@ module objects {
     // public properties
 
     // Constructor
-    constructor() {
-      super("island");
+    constructor(px:number, py:number) {
+      super("island",px,py);
       this.Start();
     }
 

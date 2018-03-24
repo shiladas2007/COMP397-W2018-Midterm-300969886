@@ -12,13 +12,17 @@ module objects {
     public isColliding: boolean;
 
     // constructors
-    constructor(imageString:string) {
+    constructor(imageString:string, px:number, py:number) {
       super(managers.Game.textureAtlas, imageString);
       this.name = imageString;
+      //initialize position from super class
+      this.x = px;
+      this.y = py;      
       this._initialize();
   }
     // private methods
     private _initialize():void {
+      //console.log("game"+this.getBounds().width)
       this.width = this.getBounds().width;
       this.height = this.getBounds().height;
       this.halfWidth = this.width * 0.5;

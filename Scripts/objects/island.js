@@ -15,8 +15,8 @@ var objects;
         // private instance variables
         // public properties
         // Constructor
-        function Island() {
-            var _this = _super.call(this, "island") || this;
+        function Island(px, py) {
+            var _this = _super.call(this, "island", px, py) || this;
             _this.Start();
             return _this;
         }

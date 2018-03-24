@@ -15,8 +15,8 @@ var objects;
         // private instance variables
         // public properties
         // Constructor
-        function Cloud() {
-            var _this = _super.call(this, "cloud") || this;
+        function Cloud(px, py) {
+            var _this = _super.call(this, "cloud", px, py) || this;
             _this.Start();
             return _this;
         }
@@ -33,21 +33,49 @@ var objects;
         };
         // reset the objects location to some value
         Cloud.prototype.Reset = function () {
-            this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
-            this.y = -this.height;
-            this._dx = Math.floor((Math.random() * 4) - 2);
-            this._dy = Math.floor((Math.random() * 5) + 5);
+            if (managers.Game.currentScene == config.Scene.PLAY) {
+                this.x = Math.floor((Math.random() * (640 - this.width)) + this.halfWidth);
+                this.y = -this.height;
+                this._dx = Math.floor((Math.random() * 4) - 2);
+                this._dy = Math.floor((Math.random() * 5) + 5);
+                console.log("x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+            }
+            else if (managers.Game.currentScene == config.Scene.LEVEL2) {
+                this.x = +this.width;
+                this.y = Math.floor((Math.random() * (480 - this.height)) + this.halfHeight);
+                this._dx = Math.floor((Math.random() * 4) - 2);
+                this._dy = Math.floor((Math.random() * 5) + 5);
+                console.log("l2:x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+            }
         };
         // move the object to some new location
         Cloud.prototype.Move = function () {
-            this.y += this._dy;
-            this.x += this._dx;
+            if (managers.Game.currentScene == config.Scene.PLAY) {
+                this.y += this._dy;
+                this.x += this._dx;
+                console.log("x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+            }
+            else if (managers.Game.currentScene == config.Scene.LEVEL2) {
+                this.y += this._dy;
+                this.x -= this._dx;
+                console.log("l2:x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+            }
         };
         // check to see if some boundary has been passed
         Cloud.prototype.CheckBounds = function () {
-            // check lower bounds
-            if (this.y >= 480 + this.height) {
-                this.Reset();
+            if (managers.Game.currentScene == config.Scene.PLAY) {
+                // check lower bounds
+                if (this.y >= 480 + this.height) {
+                    console.log("x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+                    this.Reset();
+                }
+            }
+            else if (managers.Game.currentScene == config.Scene.LEVEL2) {
+                //check left boundary
+                if (this.x <= 0 + this.width) {
+                    console.log("l2:x:" + this.x + ";y:" + this.y + ";dx:" + this._dx + ";dy:" + this._dy);
+                    this.Reset();
+                }
             }
         };
         return Cloud;

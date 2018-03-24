@@ -5,8 +5,8 @@ module objects {
     // public properties
 
     // constructors
-    constructor() {
-      super("planeflash");
+    constructor(px:number, py:number) {
+      super("planeflash",px,py);
     }
 
     // private methods

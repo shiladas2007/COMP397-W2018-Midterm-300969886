@@ -15,8 +15,8 @@ var objects;
         // private instance variables
         // public properties
         // constructors
-        function Explosion() {
-            var _this = _super.call(this, "explosion") || this;
+        function Explosion(px, py) {
+            var _this = _super.call(this, "explosion", px, py) || this;
             _this.Start();
             return _this;
         }

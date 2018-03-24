@@ -13,14 +13,18 @@ var objects;
     var GameObject = /** @class */ (function (_super) {
         __extends(GameObject, _super);
         // constructors
-        function GameObject(imageString) {
+        function GameObject(imageString, px, py) {
             var _this = _super.call(this, managers.Game.textureAtlas, imageString) || this;
             _this.name = imageString;
+            //initialize position from super class
+            _this.x = px;
+            _this.y = py;
             _this._initialize();
             return _this;
         }
         // private methods
         GameObject.prototype._initialize = function () {
+            //console.log("game"+this.getBounds().width)
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.halfWidth = this.width * 0.5;

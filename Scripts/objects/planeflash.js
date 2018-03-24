@@ -15,8 +15,8 @@ var objects;
         // private instance variables
         // public properties
         // constructors
-        function PlaneFlash() {
-            return _super.call(this, "planeflash") || this;
+        function PlaneFlash(px, py) {
+            return _super.call(this, "planeflash", px, py) || this;
         }
         // private methods
         // public methods

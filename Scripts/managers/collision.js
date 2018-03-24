@@ -31,9 +31,9 @@ var managers;
                             if (object1.alpha != 0) {
                                 createjs.Sound.play("explosion");
                                 managers.Game.scoreBoard.Lives -= 1;
-                                var explosion = new objects.Explosion();
-                                explosion.x = object1.x;
-                                explosion.y = object1.y;
+                                var explosion = new objects.Explosion(object1.x, object1.y);
+                                //  explosion.x = object1.x;
+                                //explosion.y = object1.y;
                                 managers.Game.currentSceneObject.addChild(explosion);
                                 object1.alpha = 0; // make the plane object invisible
                                 managers.Game.plane.planeFlash.alpha = 1;

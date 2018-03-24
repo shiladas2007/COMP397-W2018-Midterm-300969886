@@ -15,8 +15,8 @@ var objects;
         // private instance variables
         // public properties
         // constructors
-        function Coin() {
-            var _this = _super.call(this, "coin") || this;
+        function Coin(px, py) {
+            var _this = _super.call(this, "coin", px, py) || this;
             _this.Start();
             return _this;
         }

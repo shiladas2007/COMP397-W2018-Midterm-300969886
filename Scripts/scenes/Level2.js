@@ -10,29 +10,38 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var PlayScene = /** @class */ (function (_super) {
-        __extends(PlayScene, _super);
+    var level2 = /** @class */ (function (_super) {
+        __extends(level2, _super);
         // Public Properties
         // Constructor
-        function PlayScene() {
+        function level2() {
             var _this = _super.call(this) || this;
+            //Ensure carrying over the player's current points and lives to the new scene
+            _this._scoreBoard = managers.Game.scoreBoard;
+            console.log("score" + _this._scoreBoard.Score);
+            console.log("score" + _this._scoreBoard.Lives);
             _this.Start();
             return _this;
         }
         // Private Mathods
         // Public Methods
         // Initialize Game Variables and objects
-        PlayScene.prototype.Start = function () {
+        level2.prototype.Start = function () {
             this._ocean = new objects.Ocean();
-            this._plane = new objects.Plane(320, 430);
+            //However, setup the controls for the Player so that the Plane starts on the Left hand side of the screen
+            // and that he is in a fixed position
+            this._plane = new objects.Plane(80, 230);
+            //this._plane.setTransform(800,)
+            this._plane.setTransform(this._plane.x, this._plane.y, 1, 1, 90);
+            this._plane.planeFlash.setTransform(this._plane.planeFlash.x, this._plane.planeFlash.y, 1, 1, 90);
             managers.Game.plane = this._plane;
             this._coin = new objects.Coin(this._plane.x, this._plane.y);
             this._island = new objects.Island(120, 0);
             // instantiate the cloud array
             this._clouds = new Array();
             //this._cloudNum = 3;
-            //Part 1: Reduce the number of clouds in the Play scene to 1.
-            this._cloudNum = 1;
+            //Part 5: For Level 2 ensure that there are 2 clouds in the scene.
+            this._cloudNum = 2;
             // loop and add each cloud to the array
             for (var count = 0; count < this._cloudNum; count++) {
                 this._clouds[count] = new objects.Cloud(220, 50);
@@ -46,7 +55,7 @@ var scenes;
             this.Main();
         };
         // triggered every frame
-        PlayScene.prototype.Update = function () {
+        level2.prototype.Update = function () {
             var _this = this;
             this._ocean.Update();
             this._plane.Update();
@@ -66,14 +75,12 @@ var scenes;
                 this._engineSound.stop();
                 managers.Game.currentScene = config.Scene.OVER;
             }
-            //Part 2: When the player reaches 500 points change the active scene to a new Scene that you will create. 
-            //Call the New Scene Level2. Ensure you carry over the player's current points and lives to the new scene.
-            if (this._scoreBoard.Score >= 100) {
+            if (this._scoreBoard.Score >= 500) {
                 managers.Game.currentScene = config.Scene.LEVEL2;
             }
         };
         // This is where the fun happens
-        PlayScene.prototype.Main = function () {
+        level2.prototype.Main = function () {
             var _this = this;
             // add the ocean to the scene
             this.addChild(this._ocean);
@@ -92,8 +99,8 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        return PlayScene;
+        return level2;
     }(objects.Scene));
-    scenes.PlayScene = PlayScene;
+    scenes.level2 = level2;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=Level2.js.map

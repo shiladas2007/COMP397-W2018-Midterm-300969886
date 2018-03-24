@@ -6,10 +6,10 @@ module objects {
 
         // Constructor
         constructor(imageString:string, x:number= 0, y:number = 0 ) {
-            super(imageString);
+            super(imageString,x,y);
 
-            this.x = x;
-            this.y = y;
+           // this.x = x;
+            //this.y = y;
 
             this.on("mouseover", this._mouseOver);
             this.on("mouseout", this._mouseOut);
